@@ -1,0 +1,30 @@
+
+.home {
+
+  background: linear-gradient(180deg, rgba(255, 144, 144, 0.76) 40%, rgba(241, 113, 241, 0.749) 50%, rgba(121, 121, 198, 0.667) 70%);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: white;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  text-align: center;
+  
+}
+
+.search {
+
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  background-color: aliceblue;
+  border: 2px solid #c83939;
+  padding: 20px;
+  border-radius: 5px;
+  width: 200px;
+  height: 50px;
+  margin: auto;
+  
+}
