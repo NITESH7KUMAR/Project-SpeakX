@@ -24,10 +24,6 @@ function Navbarhome() {
           </li>
 
           <li className='nav-links1'>
-            <Link to="/Work">Work</Link>
-          </li>
-
-          <li className='nav-links1'>
             <Link to="/Contact">Contact</Link>
           </li>
 
