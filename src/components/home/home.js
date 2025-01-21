@@ -18,7 +18,7 @@ function HomePage() {
         setLoading(true);
 
         try {
-            const response = await axios.get(`http://localhost:5000/api/questions?query=${query}&page=${page}&limit=${itemsPerPage}`);
+            const response = await axios.get(`http://localhost:5001/api/questions?query=${query}&page=${page}&limit=${itemsPerPage}`);
             setQuestions(response.data.questions || []); // Ensure we set an empty array if no questions are returned
             setTotalQuestions(response.data.total || 0); // Assuming the backend sends the total number of questions available
         } catch (error) {
