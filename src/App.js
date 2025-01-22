@@ -17,7 +17,9 @@ function App() {
         <Route path="/Home" element={<Navigate to="/Home" />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      <div className='footer'>
         <Footer/>
+        </div>
     </Router>
   );
 }

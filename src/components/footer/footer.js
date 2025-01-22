@@ -21,7 +21,7 @@ const Footer = () => {
                         <p>Get to know Us</p>
                         <a href="Home">Home</a>
                         <a href="About">About</a>
-                        <a href="Work">Contact</a>
+                        <a href="Contect">Contact</a>
                     </ul>
 
                     <ul className='contect'>
@@ -46,14 +46,7 @@ const Footer = () => {
                         <a href="#lab-tests">Product Testing</a>
                         <a href="#collection-centre">Collection Centre</a>
                     </ul>
-                    <ul>
-                        <p>Let Us Help You</p>
-                        <a href="#your-account">Your Account</a>
-                        <a href="#returns">Feedback</a>
-                        <a href="#purchase-protection">100% Purchase Protection</a>
-                        <a href="#help">Help</a>
-                    </ul>
-                    {/* <p>© 2024 My Website. All rights reserved.</p> */}
+                    {/* <p>© 2025 My Website. All rights reserved.</p> */}
                 </div>
             </footer>
 

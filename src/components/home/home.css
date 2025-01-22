@@ -1,9 +1,21 @@
+/* General container styling */
 .home-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  gap: 20px;
+  padding-top: 30px;
+}
+.home-container h1{
+  padding-top: 15px;
+  font-size: 3.5rem;
+  font-family:Arial, Helvetica, sans-serif;
+  color: #120303;
+}
+.home-container p{
+  margin-top: -20px;
+  font-size: 1.5rem;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: #120303;
 }
 
 .image-section {
@@ -11,85 +23,150 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 80px;
+  padding-bottom: 35px;
+}
+
+.left-image {
+  order: 1;
+}
+
+.right-image {
+  order: 3;
 }
 
 .home-image {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
   border-radius: 10px;
 }
 
 .content-section {
+  order: 2;
   flex: 2;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  text-align: center;
 }
 
-
+/* Search box styling */
 .search {
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
-  background-color: aliceblue;
-  border: 2px solid #c83939;
-  padding: 20px;
-  border-radius: 5px;
-  width: 200px;
-  height: 50px;
-  margin: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
 }
 
-/* Add the following CSS for results and pagination */
+.search input {
+  width: 550px;
+  padding: 15px 20px;
+  font-size: 1.5rem;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.search input::placeholder {
+  font-size: 1.5rem;
+  color: #717070;
+}
+
+.search input:focus {
+  border-color: #05172b;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.search-button {
+  padding: 15px 30px;
+  margin-left: 10px;
+  font-size: 1.2rem;
+  background-color: #b34b00d4;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #21231cd4;
+}
 
 /* Styles for results section */
 .results {
-    margin-top: 20px;
-    padding: 20px;
+  margin-top: 20px;
+  padding: 20px;
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
-/* Pagination Styles */
+/* Pagination Styling */
 .pagination {
-    margin-top: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 1px;
 }
 
 .pagination button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px;
+  border: 1px solid #180505;
+  background-color: #fff;
+  color: #c83939;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
+
+.pagination button:hover {
+  background-color: #c83939;
+  color: #fff;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .questions-list {
   margin-top: 20px;
 }
+.questions-list:hover {
+  cursor: pointer;
+}
 
+/* Question card styling */
 .question-card {
-  background-color: #d5d5eb;
+  background-color: #e8e8f1;
   padding: 20px;
   margin-bottom: 10px;
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid #f7efef;
   transition: transform 0.2s;
 }
 
 .question-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 
 .question-title {
   font-size: 1.2em;
-  font-weight: bold;
+  font-weight:300;
 }
 
 .question-type {
-  color: #555;
+  color: #3f0a0a;
   font-style: italic;
+  font-weight: bold;
 }
 
 .mcq-options {
@@ -112,3 +189,20 @@ ul {
   font-style: italic;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .pagination {
+    flex-direction: column;
+    align-items: center;
+  }
+}
