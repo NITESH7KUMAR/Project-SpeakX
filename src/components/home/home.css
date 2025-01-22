@@ -19,6 +19,9 @@
 }
 
 .image-section {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -36,6 +39,7 @@
 }
 
 .home-image {
+  position:relative;
   max-width: 90%;
   height: auto;
   border-radius: 10px;
@@ -108,11 +112,15 @@ ul {
 }
 
 /* Pagination Styling */
+
+/* Ensure pagination appears below the search section */
 .pagination {
+  position: relative;
   margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 1px;
+  z-index: 1; /* Ensure it stays above other elements */
 }
 
 .pagination button {

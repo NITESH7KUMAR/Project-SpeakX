@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import './home.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import image1 from '../assets/image1.png';
@@ -81,13 +82,13 @@ function HomePage() {
                 {questions.length > 0 && (
                     <>
                         <div className="questions-list">
-                            {questions.map((question) => (
-                                <div key={question._id} className="question-card">
-                                    <p className="question-type">Type: {question.type}</p>
-                                    <h3 className="question-title">{question.title}</h3>
-                
-                                </div>
-                            ))}
+                        {questions.map((question) => (
+    <div key={question._id} className="question-card">
+        <p className="question-type">Type: {question.type}</p>
+        <h3 className="question-title">{question.title}</h3>
+        <Link to={`/questions/${question._id}`}>View Details</Link>
+    </div>
+))}
                         </div>
 
                         <div className="pagination">

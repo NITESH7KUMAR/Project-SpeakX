@@ -3,7 +3,9 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes,Navigate } from 'react-router-dom';
 import Navbarhome from "./components/navbar/navbar.js";
 import HomePage from './components/home/home.js';
+import QuestionDetailPage from './components/questionPage/questionPage';
 import Footer from './components/footer/footer.js';
+
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
         <Route path="/Home" element={<HomePage/>} />
 
         <Route path="/Home" element={<Navigate to="/Home" />} />
+        <Route path="/questions/:questionId" element={<QuestionDetailPage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <div className='footer'>
