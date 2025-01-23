@@ -1,82 +1,179 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './questionPage.css';
+import axios from 'axios';
+import image3 from '../assets/image3.png';
+
 
 function QuestionDetailPage() {
-    const { questionId } = useParams(); // Get the question ID from the URL
-    const [questionDetails, setQuestionDetails] = useState(null);
-    const [loading, setLoading] = useState(true); // Loading state
-    const [error, setError] = useState(null);
+  const { questionId } = useParams();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchQuestionDetails = async () => {
-            try {
-                console.log('Fetching Question ID:', questionId);
-                const response = await axios.get(`http://localhost:5001/api/questions/${questionId}`);
-                setQuestionDetails(response.data);
-            } catch (error) {
-                console.error('Error fetching question details:', error);
-                setError('Failed to load question details. Please try again later.');
-            } finally {
-                setLoading(false); // Ensure loading stops
-            }
-        };
+  const [questionDetails, setQuestionDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [answerVisible, setAnswerVisible] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [feedback, setFeedback] = useState('');
+  const [anagramInput, setAnagramInput] = useState('');
 
-        fetchQuestionDetails();
-    }, [questionId]);
+  useEffect(() => {
+    const fetchQuestionDetails = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5001/api/questions/${questionId}`);
+        setQuestionDetails(response.data);
+      } catch (error) {
+        setError('Error fetching question details.');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchQuestionDetails();
+  }, [questionId]);
 
-    if (loading) {
-        return <div className="loading">Loading question details...</div>;
+  const handleSubmitMCQ = () => {
+    setSubmitted(true);
+    if (selectedOption) {
+      const correctOption = questionDetails.options.find(option => option.isCorrectAnswer);
+      if (selectedOption === correctOption.text) {
+        setFeedback('Correct!');
+      } else {
+        setFeedback('Wrong answer!');
+      }
+    } else {
+      setFeedback('Please select an option before submitting.');
     }
+  };
 
-    if (error) {
-        return (
-            <div className="error">
-                <p>{error}</p>
-                <button onClick={() => window.location.reload()}>Retry</button>
+  const handleSubmitAnagram = () => {
+    setSubmitted(true);
+    if (anagramInput.trim() === questionDetails.correctAnswer.trim()) {
+      setFeedback('Correct!');
+    } else {
+      setFeedback('Wrong answer!');
+    }
+  };
+
+  const handleShowSolution = () => {
+    setAnswerVisible(true);
+  };
+
+  const handleNextQuestion = async () => {
+    if (questionDetails) {
+      try {
+        const response = await axios.get(`http://localhost:5001/api/questions?type=${questionDetails.type}&next=true`);
+        navigate(`/question/${response.data.id}`);
+      } catch (error) {
+        setError('Error fetching next question.');
+      }
+    }
+  };
+
+  const handleBack = () => {
+    navigate(-1);
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  return (
+    <div className="question-detail-container">
+      <div className="content-container">
+        <div className="question-content">
+          <div className='btn1'>
+            <button onClick={handleBack}>Back</button>
+          </div>
+          <p>Type: {questionDetails.type}</p>
+          <h1>{questionDetails.title}</h1>
+
+          {/* MCQ Question Type */}
+          {questionDetails.type === 'MCQ' && (
+            <div className="mcq-options">
+              {questionDetails.options.map((option, index) => (
+                <button
+                  key={`option-${index}`}
+                  onClick={() => setSelectedOption(option.text)}
+                  className={selectedOption === option.text ? 'selected' : ''}
+                >
+                  {option.text}
+                </button>
+              ))}
             </div>
-        );
-    }
+          )}
 
-    // Handle MCQ Type
-    const renderMCQOptions = () => {
-        return questionDetails.options.map((option, index) => (
-            <button key={`option-${index}`} disabled={!option.showInOption} style={{ backgroundColor: option.isCorrectAnswer ? 'green' : 'gray' }}>
-                {option.text}
+          {/* Anagram Question Type */}
+          {questionDetails.type === 'Anagram' && (
+            <div className="anagram-section">
+              <p>Rearrange the following:</p>
+              <h3>{questionDetails.scrambledText}</h3>
+              <input
+                type="text"
+                value={anagramInput}
+                onChange={(e) => setAnagramInput(e.target.value)}
+                placeholder="Type your answer here"
+              />
+            </div>
+          )}
+
+          {/* Submit Button */}
+          {!submitted && questionDetails.type === 'MCQ' && (
+            <button onClick={handleSubmitMCQ} className="submit-btn">
+              Submit
             </button>
-        ));
-    };
+          )}
+          {!submitted && questionDetails.type === 'Anagram' && (
+            <button onClick={handleSubmitAnagram} className="submit-btn">
+              Submit
+            </button>
+          )}
 
-    // Handle ANAGRAM Type
-    const renderAnagramBlocks = () => {
-        return questionDetails.blocks.map((block, index) => (
-            <span key={`block-${index}`} className="anagram-block">
-                {block.text}
-            </span>
-        ));
-    };
+          {/* Feedback */}
+          {submitted && (
+            <div className="feedback">
+              <p>{feedback}</p>
+            </div>
+          )}
 
-    return (
-        <div className="question-detail-container">
-            <h1>{questionDetails.title}</h1>
-            <p>Type: {questionDetails.type}</p>
+          {/* Show Solution Button */}
+          {submitted && !answerVisible && (
+            <button onClick={handleShowSolution} className="show-solution-btn">
+              Show Solution
+            </button>
+          )}
 
-            {questionDetails.type === 'MCQ' && (
-                <div className="mcq-options">
-                    {renderMCQOptions()}
-                </div>
-            )}
+          {/* Show Solution */}
+          {submitted && answerVisible && (
+            <div className="solution">
+              <h2>Solution:</h2>
+              <p>
+                The correct answer is:{' '}
+                {questionDetails.type === 'MCQ'
+                  ? questionDetails.options.find(option => option.isCorrectAnswer).text
+                  : questionDetails.correctAnswer}
+              </p>
+            </div>
+          )}
 
-            {questionDetails.type === 'ANAGRAM' && (
-                <div className="anagram">
-                    <p>Rearrange the following words:</p>
-                    <div className="blocks">{renderAnagramBlocks()}</div>
-                    <p>Solution: {questionDetails.solution}</p>
-                </div>
-            )}
+          {/* Next Question Button */}
+          {submitted && (
+            <button onClick={handleNextQuestion} className="next-btn">
+              Next Question
+            </button>
+          )}
         </div>
-    );
+      </div>
+      <div className="image-container">
+        <img src={image3} alt="Question Illustration" />
+        </div>
+    </div>
+  );
 }
 
 export default QuestionDetailPage;

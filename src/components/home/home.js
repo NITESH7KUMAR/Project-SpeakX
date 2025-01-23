@@ -83,17 +83,17 @@ function HomePage() {
                     <>
                         <div className="questions-list">
                         {questions.map((question) => (
-    <div key={question._id} className="question-card">
-        <p className="question-type">Type: {question.type}</p>
-        <h3 className="question-title">{question.title}</h3>
-        <Link to={`/questions/${question._id}`}>View Details</Link>
-    </div>
-))}
+                        <div key={question._id} className="question-card">
+                             <p className="question-type">Type: {question.type}</p>
+                             <h3 className="question-title">{question.title}</h3>
+                             <Link to={`/questions/${question._id}`}>View Details</Link>
+                         </div>
+                            ))}
                         </div>
 
                         <div className="pagination">
                             <button onClick={handlePreviousPage} disabled={page === 1}>
-                                Previous
+                                Prev
                             </button>
                             <span>
                                 Page {page} of {Math.ceil(totalQuestions / itemsPerPage)}

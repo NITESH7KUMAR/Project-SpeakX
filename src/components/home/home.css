@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 30px;
+    background: linear-gradient(180deg, rgba(165, 105, 105, 0.267) 40%, rgba(242, 153, 206, 0.24) 50%, rgba(121, 188, 198, 0.262) 70%);
 }
 .home-container h1{
   padding-top: 15px;
@@ -60,6 +61,7 @@
   justify-content: center;
   align-items: center;
   margin: 20px auto;
+  margin-bottom: 38px;
 }
 
 .search input {
@@ -127,7 +129,7 @@ ul {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  margin: 5px;
+  margin-top: 30px;
   border: 1px solid #180505;
   background-color: #fff;
   color: #c83939;
@@ -144,6 +146,9 @@ ul {
   cursor: not-allowed;
   opacity: 0.5;
 }
+.pagination span{
+  margin-top: -10px;
+}
 
 .questions-list {
   margin-top: 20px;
@@ -154,9 +159,10 @@ ul {
 
 /* Question card styling */
 .question-card {
-  background-color: #e8e8f1;
+  background-color: #b8c1c8;
   padding: 20px;
   margin-bottom: 10px;
+  margin-left: -40px;
   border-radius: 8px;
   border: 1px solid #f7efef;
   transition: transform 0.2s;
@@ -172,30 +178,12 @@ ul {
 }
 
 .question-type {
+  padding-bottom: -10px;
   color: #3f0a0a;
   font-style: italic;
   font-weight: bold;
 }
 
-.mcq-options {
-  margin-top: 10px;
-}
-
-.mcq-option {
-  margin-bottom: 8px;
-}
-
-.anagram {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.read-along {
-  margin-top: 10px;
-  font-style: italic;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
