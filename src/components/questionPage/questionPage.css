@@ -202,3 +202,22 @@ img{
     width: 50%;
     height: 300px;
 }
+@media (max-width: 985px) {
+    .btn1 button {
+        margin-left: -500px; 
+    }
+    @media (max-width: 607px) {
+        .btn1 button {
+            margin-left: -400px; 
+            font-size: 13px;      
+        }
+      }
+
+      @media (max-width: 405px) {
+        .btn1 button {
+            margin-left: -330px;
+            font-size: 10px;     
+        }
+      }
+  }
+  
