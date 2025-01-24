@@ -21,9 +21,7 @@ function App() {
         <Route path="/questions/:questionId" element={<QuestionDetailPage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      <div className='footer'>
         <Footer/>
-        </div>
     </Router>
   );
 }

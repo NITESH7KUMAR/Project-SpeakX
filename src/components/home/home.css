@@ -1,4 +1,5 @@
 /* General container styling */
+
 .home-container {
   display: flex;
   align-items: center;
@@ -8,13 +9,13 @@
 }
 .home-container h1{
   padding-top: 15px;
-  font-size: 3.5rem;
+  font-size: clamp(1rem, 4vw, 3.5rem);
   font-family:Arial, Helvetica, sans-serif;
   color: #120303;
 }
 .home-container p{
   margin-top: -20px;
-  font-size: 1.5rem;
+  font-size: clamp(0.5rem, 1.5vw, 1.5rem);
   font-family:Georgia, 'Times New Roman', Times, serif;
   color: #120303;
 }
@@ -23,7 +24,7 @@
   position: sticky;
   top: 0;
   align-self: flex-start;
-  flex: 1;
+  flex: 2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -151,7 +152,7 @@ ul {
 }
 
 .questions-list {
-  margin-top: 20px;
+  margin-top: 2px;
 }
 .questions-list:hover {
   cursor: pointer;
@@ -186,19 +187,236 @@ ul {
 
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .home-container {
-    flex-direction: column;
-    gap: 10px;
+
+@media(max-width: 1579px){
+  .home-container h1{
+    padding-top: 55px;
+  }
+  .home-container p{
+    padding-top: 35px;
+
+  }
+
+  .image-section {
+    padding-top: 120px;
   }
 
   .search {
-    width: 100%;
-    max-width: 400px;
+    margin-bottom: 118px;
+  }
+}
+
+@media (max-width: 1184px) {
+  .search { 
+    width: 120%; /* Adjust width to 80% for medium screens */
+    min-width: 400px; /* Set minimum width */
+    margin-left: -50px;
+}
+.search input {
+    width: 100%; /* Ensure input takes full width of its container */
+    padding: 10px; /* Adjust padding to make it more usable */
+    font-size: 1rem; 
+    margin-top: 32px;
+    border-radius: 10px;
+    margin-bottom: 42px;/* Adjust font size if needed */
+}
+.search button {
+  width: 25%; /* Ensure button takes full width of its container */
+  padding: 9px; /* Adjust padding for better usability */
+  font-size: 1rem; /* Adjust font size */
+  margin-top: 23px; 
+  border-radius: 10px;
+  margin-bottom: 32px; /* Add spacing between the input and the button */
+}
+  .home-container h1 {
+    margin-top: -10px;
+    font-size: 2.0rem;
+    text-align: center;
+  }
+
+  .home-container p {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: -10px;
+  }
+
+  @media (max-width: 980px) {
+    .search {
+      width: 100%; /* Adjust width to 80% for medium screens */
+      min-width: 400px; /* Set minimum width */
+        margin-bottom: 118px;
+        margin-left: 10px;
+      }  
+
+  .search input {
+      width: 100%; /* Ensure input takes full width of its container */
+      padding: 10px; /* Adjust padding to make it more usable */
+      font-size: 1rem; 
+  
+      margin-bottom: 42px;/* Adjust font size if needed */
+  }
+
+  .search button {
+      width: 25%; /* Ensure button takes full width of its container */
+      padding: 9px; /* Adjust padding for better usability */
+      font-size: 1rem;
+      margin-bottom: 32px; /* Add spacing between the input and the button */
+  }
+
+.home-container h1 {
+  margin-top: -10px;
+  font-size: 2.0rem;
+  text-align: center;
+}
+
+.home-container p {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: -10px;
+}
+.question-card {
+  padding: 15px; /* Reduce padding for smaller screens */
+  margin-left: 0; /* Remove negative margin */
+  font-size: 0.9rem; /* Reduce font size */
+}
+}
+}
+@media (max-width: 690px) and (min-width: 485px) {
+  .home-container {
+    display: grid;
+    place-items: center; /* Center content horizontally and vertically */
+  }
+
+  .image-section {
+    display: none; /* Hide the images */
+  }
+
+  .home-container h1 {
+    margin-top: 0px;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .home-container p {
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 10px auto;
+  }
+
+  .search {
+    width: 100%; /* Adjust width to 100% */
+    min-width: 400px; /* Set minimum width */
+    margin: 0 auto; /* Center align the search container */
+  }
+
+  .search input {
+    width: 50%; /* Input width */
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 32px;
+    margin-bottom: 52px;
+  }
+
+  .search button {
+    width: 15%; /* Button width */
+    padding: 9px;
+    font-size: 1rem;
+    margin-top: 23px;
+    margin-bottom: 42px;
+  }
+
+  .question-card {
+    text-align: center;
+    padding: 20px;
+    width: 430px;
+    margin: 0 auto 10px; /* Center horizontally with `margin: 0 auto` */
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content inside the card */
+    align-items: center; /* Center content horizontally inside the card */
+  }
+}
+
+@media (max-width: 485px) {
+  .home-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .home-container h1 {
+    font-size: 2rem; /* Adjusted font size for smaller screens */
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .home-container p {
+    margin-left: 15px;
+    width: 90%;
+    font-size: 0.9rem; /* Smaller text size for better fit */
+    text-align: center;
+    /* margin: 5px 0; */
+  }
+
+  .image-section {
+    display: none; /* Hiding the image section for smaller screens */
+  }
+
+  .content-section {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .search {
+    flex-direction: column;
+    gap: 10px;
+    margin:5px ;
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  .search input {
+    width: 60%; /* Take up full width */
+    font-size: 1rem;
+    padding: 8px;
+    margin-bottom: -5px;
+    border-radius: 10px; /* Adjusted radius for smaller design */
+  }
+
+  .search-button {
+    width: 15%; /* Match input width */
+    font-size: 1rem;
+    border-radius: 12px;
   }
 
   .pagination {
     flex-direction: column;
-    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
   }
+
+  .pagination button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    width: 20%;
+    text-align: center;
+    margin: 10px auto; /* Horizontally center the button */
+    display: block; /* Ensure the button is a block-level element */
+  }
+  
+
+  .question-card {
+    text-align: center;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto 10px; /* Center horizontally with `margin: 0 auto` */
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content inside the card */
+    align-items: center; /* Center content horizontally inside the card */
+  }
+
 }
+
