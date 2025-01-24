@@ -1,7 +1,7 @@
 
    /* CSS */
 .header {
-  background: linear-gradient(-2deg, #cae2df, #e5ede3c3);
+  background: linear-gradient(-2deg, #8ae7dc, #78eb5bd6);
     padding-bottom: 15px;
     text-align: center;
     height: 50px;
@@ -37,7 +37,7 @@
   }
   .nav-links {
     /* background-color: white; */
-      background-color: rgb(37, 166, 102);
+      background-color: rgb(247, 143, 31);
     display: flex;
     justify-content: center; 
     list-style-type: none;
