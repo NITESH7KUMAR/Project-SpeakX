@@ -1,4 +1,5 @@
 /* Container */
+
 .question-detail-container {
     padding-bottom: -10px;
     background-color: #ffffff;
@@ -12,8 +13,6 @@
     margin-top: 40px;
     border: 1px solid #ddd;
 }
-
-/* Title */
 .question-detail-container p {
     font-size: 35px;
     font-weight: bold;
@@ -22,21 +21,17 @@
     margin-bottom: 55px;
     color: #1c2834;
 }
-
-/* Description */
 .question-detail-container h1 {
     font-size: 16px;
     color: #252323;
 }
 
-/* MCQ Options */
 .mcq-options {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-bottom: 100px;
 }
-
 .mcq-options button {
     padding: 10px 15px;
     max-width: 150%;
@@ -49,35 +44,29 @@
     margin-bottom: -15px;
     transition: background-color 0.3s;
 }
-
 .mcq-options button:hover {
     background-color: #2980b9;
 }
 
-/* Anagram Blocks */
 .anagram-block {
     margin: 5px;
     padding: 5px;
     background-color: #f0f0f0;
     border-radius: 4px;
 }
-
 .anagram {
     margin-top: 20px;
 }
 
-/* Fill-in-the-Blank */
 .fill-in-the-blank {
     margin: 20px 0;
 }
-
 .fill-in-the-blank p {
     font-size: 18px;
     font-style: italic;
     margin-bottom: 10px;
     color: #34495e;
 }
-
 .fill-in-the-blank input {
     width: 10%;
     padding: 10px;
@@ -88,7 +77,6 @@
     outline: none;
     transition: border-color 0.3s;
 }
-
 .fill-in-the-blank input:focus {
     border-color: #3498db;
 }
@@ -102,7 +90,6 @@
     margin-top: 10px;
 }
 
-/* Buttons */
 button {
     font-size: 16px;
     padding: 10px 20px;
@@ -115,11 +102,9 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 button:hover {
     background-color: #155963;
 }
-
 button:disabled {
     background-color: #bdc3c7;
     cursor: not-allowed;
@@ -136,30 +121,24 @@ button:disabled {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 .btn1 button:hover {
     background-color: #219150;
 }
-
 .btn1 button:disabled {
     background-color: #bdc3c7;
     cursor: not-allowed;
 }
 
-
-/* Loading and Error Messages */
 .error {
     color: red;
     text-align: center;
 }
-
 .loading {
     text-align: center;
     font-size: 18px;
     color: #333;
 }
 
-/* Submit and Show Solution Buttons */
 .submit-btn {
     background-color: #33a837;
     color: white;
@@ -171,7 +150,6 @@ button:disabled {
     margin-top: -10px;
     margin-bottom: 35px;
 }
-
 .submit-btn:hover {
     background-color: #027b08;
 }
@@ -186,26 +164,26 @@ button:disabled {
     border-radius: 5px;
     margin-top: 15px;
 }
-
 .show-solution-btn:hover {
     background-color: #0056b3;
 }
 
-/* Selected Option Styling */
 .mcq-options button.selected {
-    background-color: #11bc17 !important; /* Green background */
-    color: white; /* White text color */
-    font-weight: bold; /* Make the text bold */
+    background-color: #11bc17 !important;
+    color: white; 
+    font-weight: bold; 
 }
 
 img{
     width: 50%;
     height: 300px;
 }
+
 @media (max-width: 985px) {
     .btn1 button {
         margin-left: -500px; 
     }
+    
     @media (max-width: 607px) {
         .btn1 button {
             margin-left: -400px; 

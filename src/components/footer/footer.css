@@ -1,15 +1,13 @@
-/* General footer styling */
 .footer {
     text-align: center;
     border-bottom: 1px solid rgb(11, 4, 4);
     background: linear-gradient(100deg, #37a868ec, #09191c90);
     border-radius: 20px;
     font-size: larger;
-    overflow: hidden; /* Prevent unnecessary overflow */
-}
-
-/* Back to Top Panel */
-.foot-panel1 {
+    overflow: hidden;
+  }
+  
+  .foot-panel1 {
     background: linear-gradient(deg, #1e2310, #45daeed6);
     border-bottom: 2px solid rgb(11, 4, 4);
     border-top: 2px solid rgb(6, 5, 5);
@@ -20,75 +18,75 @@
     justify-content: center;
     align-items: center;
     font-size: 1rem;
-}
-.foot-panel1 p {
+  }
+  
+  .foot-panel1 p {
     cursor: pointer;
-}
-.foot-panel1 p:hover {
+  }
+  
+  .foot-panel1 p:hover {
     color: #c2eeea;
-}
-
-/* Main Footer Panel */
-.foot-panel2 {
+  }
+  
+  .foot-panel2 {
     color: white;
-    padding: 10px 0; /* Minimized padding for better spacing */
+    padding: 10px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 10px; /* Smaller gap to reduce height increase */
-    align-items: flex-start; /* Align items to the top */
-}
-
-/* List styling within the Footer */
-.foot-panel2 ul {
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .foot-panel2 ul {
     margin: 0;
     padding: 0;
     list-style: none;
-}
-
-.foot-panel2 ul p {
+  }
+  
+  .foot-panel2 ul p {
     font-weight: bold;
     margin-bottom: 10px;
-}
-
-.foot-panel2 ul a {
+  }
+  
+  .foot-panel2 ul a {
     display: block;
     font-size: 0.85rem;
     margin-top: 10px;
     color: #dddddd;
     text-decoration: none;
-}
-
-.foot-panel2 ul a:hover {
+  }
+  
+  .foot-panel2 ul a:hover {
     color: #ffffff;
-}
-
-/* Responsive Fixes */
-@media (max-width: 1579px) {
+  }
+  
+  @media (max-width: 1579px) {
     .footer {
-        font-size: 1.5rem;
+      font-size: 1.5rem;
     }
     .foot-panel1 {
-        font-size: 1.5rem;
+      font-size: 1.5rem;
     }
     .foot-panel2 ul a {
-        font-size: 1.2rem;
+      font-size: 1.2rem;
     }
-}
-
-@media (max-width: 610px) {
+  }
+  
+  @media (max-width: 610px) {
     .footer {
-        font-size: 1rem;
+      font-size: 1rem;
     }
     .foot-panel1 {
-        font-size: 1rem;
+      font-size: 1rem;
     }
     .foot-panel2 {
-        flex-wrap: wrap;
-        gap: 5px; /* Reduced gap for compact layout */
-        padding: 5px 0; /* Reduced padding */
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 5px 0;
     }
     .foot-panel2 ul a {
-        font-size: 1rem;
+      font-size: 1rem;
     }
-}
+  }
+  

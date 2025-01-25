@@ -6,9 +6,6 @@ import HomePage from './components/home/home.js';
 import QuestionDetailPage from './components/questionPage/questionPage';
 import Contact from './components/contact/contact.js';
 import Footer from './components/footer/footer.js';
-
-
-
 function App() {
   return (
     <Router>

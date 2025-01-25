@@ -5,11 +5,9 @@ import './questionPage.css';
 import axios from 'axios';
 import image3 from '../assets/image3.png';
 
-
 function QuestionDetailPage() {
   const { questionId } = useParams();
   const navigate = useNavigate();
-
   const [questionDetails, setQuestionDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -93,7 +91,6 @@ function QuestionDetailPage() {
           <p>Type: {questionDetails.type}</p>
           <h1>{questionDetails.title}</h1>
 
-          {/* MCQ Question Type */}
           {questionDetails.type === 'MCQ' && (
             <div className="mcq-options">
               {questionDetails.options.map((option, index) => (
@@ -108,7 +105,6 @@ function QuestionDetailPage() {
             </div>
           )}
 
-          {/* Anagram Question Type */}
           {questionDetails.type === 'Anagram' && (
             <div className="anagram-section">
               <p>Rearrange the following:</p>
@@ -122,7 +118,6 @@ function QuestionDetailPage() {
             </div>
           )}
 
-          {/* Submit Button */}
           {!submitted && questionDetails.type === 'MCQ' && (
             <button onClick={handleSubmitMCQ} className="submit-btn">
               Submit
@@ -134,21 +129,18 @@ function QuestionDetailPage() {
             </button>
           )}
 
-          {/* Feedback */}
           {submitted && (
             <div className="feedback">
               <p>{feedback}</p>
             </div>
           )}
 
-          {/* Show Solution Button */}
           {submitted && !answerVisible && (
             <button onClick={handleShowSolution} className="show-solution-btn">
               Show Solution
             </button>
           )}
 
-          {/* Show Solution */}
           {submitted && answerVisible && (
             <div className="solution">
               <h2>Solution:</h2>
@@ -161,7 +153,6 @@ function QuestionDetailPage() {
             </div>
           )}
 
-          {/* Next Question Button */}
           {submitted && (
             <button onClick={handleNextQuestion} className="next-btn">
               Next Question
@@ -171,7 +162,7 @@ function QuestionDetailPage() {
       </div>
       <div className="image-container">
         <img src={image3} alt="Question Illustration" />
-        </div>
+      </div>
     </div>
   );
 }

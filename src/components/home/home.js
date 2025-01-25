@@ -76,18 +76,18 @@ function HomePage() {
                     </button>
                 </div>
 
-                {loading && <p>Loading...</p>}
-                {questions.length === 0 && !loading && query && <p>No results found</p>}
+                {loading && <p className='no-result'>Loading...</p>}
+                {questions.length === 0 && !loading && query && <p className='no-result'>No results found</p>}
 
                 {questions.length > 0 && (
                     <>
                         <div className="questions-list">
-                        {questions.map((question) => (
-                        <div key={question._id} className="question-card">
-                             <p className="question-type">Type: {question.type}</p>
-                             <h3 className="question-title">{question.title}</h3>
-                             <Link to={`/questions/${question._id}`}>View Details</Link>
-                         </div>
+                            {questions.map((question) => (
+                                <div key={question._id} className="question-card">
+                                    <p className="question-type">Type: {question.type}</p>
+                                    <h3 className="question-title">{question.title}</h3>
+                                    <Link to={`/questions/${question._id}`}>View Details</Link>
+                                </div>
                             ))}
                         </div>
 
