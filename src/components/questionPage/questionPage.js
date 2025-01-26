@@ -20,7 +20,7 @@ function QuestionDetailPage() {
   useEffect(() => {
     const fetchQuestionDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5001/api/questions/${questionId}`);
+        const response = await axios.get(`https://backend2-j6wl.onrender.com/api/questions/${questionId}`);
         setQuestionDetails(response.data);
       } catch (error) {
         setError('Error fetching question details.');
@@ -60,9 +60,16 @@ function QuestionDetailPage() {
 
   const handleNextQuestion = async () => {
     if (questionDetails) {
+      setSubmitted(false); // Reset the submitted state
+      setFeedback(''); // Clear the feedback
+
       try {
-        const response = await axios.get(`http://localhost:5001/api/questions?type=${questionDetails.type}&next=true`);
-        navigate(`/question/${response.data.id}`);
+        const response = await axios.get(`https://backend2-j6wl.onrender.com/api/questions?type=${questionDetails.type}&next=true`);
+        if (response.data) {
+          navigate(`/question/${response.data.id}`);
+        } else {
+          setError('No more questions available.');
+        }
       } catch (error) {
         setError('Error fetching next question.');
       }

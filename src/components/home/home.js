@@ -27,7 +27,9 @@ function HomePage() {
 
         try {
             const response = await axios.get(
-                `http://localhost:5001/api/questions?query=${query}&page=${page}&limit=${itemsPerPage}`
+                `https://backend2-j6wl.onrender.com/api/questions?query=${query}&page=${page}&limit=${itemsPerPage}`
+            
+            
             );
             setQuestions(response.data.questions || []);
             setTotalQuestions(response.data.total || 0);
